@@ -1,0 +1,185 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║  ⛔ AI AGENTS: DO NOT MODIFY THIS FILE                         ║
+# ║  This file is protected. Only humans may edit .gitignore.      ║
+# ║  See .platform-rules/reference/sensitive-files.md for details.            ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+# ==========================================================
+# DEPENDENCIES
+# ==========================================================
+node_modules/
+.pnp
+.pnp.js
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# ==========================================================
+# BUILD OUTPUTS
+# ==========================================================
+dist/
+build/
+.next/
+out/
+
+# ==========================================================
+# ENVIRONMENT FILES — NEVER COMMIT (including .env.example)
+# ==========================================================
+*.env
+*.env.local
+*.env.*.local
+*.env.example
+env.example
+
+# ==========================================================
+# SECRETS & CREDENTIALS — HARD BLOCK
+# ==========================================================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.secret
+credentials.json
+service-account*.json
+secrets/
+.secrets/
+
+# ==========================================================
+# DOCUMENTS & DATA FILES — NEVER COMMIT
+# Projects often handle confidential Bayer data.
+# Use context/ folder for reference data (gitignored below).
+# Use database/seed/ for local test data (gitignored below).
+# ==========================================================
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.csv
+*.tsv
+*.parquet
+*.avro
+
+# ==========================================================
+# ARCHIVES
+# ==========================================================
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+*.gz
+*.bz2
+
+# ==========================================================
+# MEDIA FILES — Blocked everywhere EXCEPT frontend/
+# Frontend app assets (logos, icons, images) are allowed.
+# ==========================================================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.svg
+*.webp
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.avi
+*.webm
+*.tiff
+*.tif
+
+# Allow frontend app assets
+!frontend/**/*.png
+!frontend/**/*.jpg
+!frontend/**/*.jpeg
+!frontend/**/*.gif
+!frontend/**/*.bmp
+!frontend/**/*.ico
+!frontend/**/*.svg
+!frontend/**/*.webp
+
+# ==========================================================
+# LOCAL DATABASES & DATA DIRECTORIES
+# ==========================================================
+*.sqlite
+*.sqlite3
+*.db
+db_data/
+data/
+uploads/
+exports/
+local-data/
+
+# ==========================================================
+# DATABASE — Schema tracked, seed data and env gitignored
+# ==========================================================
+database/.env
+database/seed/*
+!database/seed/.gitkeep
+
+# ==========================================================
+# AI CONTEXT FOLDER — For reference data (gitignored)
+# Users share files here for AI to analyze. Never committed.
+# ==========================================================
+context/*
+!context/.gitkeep
+
+# ==========================================================
+# AI TOOL DATA — Claude settings (skills are platform-shipped)
+# ==========================================================
+.claude/*
+!.claude/skills/
+
+# ==========================================================
+# IDE & OS
+# ==========================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==========================================================
+# LOGS
+# ==========================================================
+logs/
+*.log
+npm-debug.log*
+
+# ==========================================================
+# TEST COVERAGE
+# ==========================================================
+coverage/
+.claude
+.clinerules
+.cursor
+.devcontainer
+.github
+.platform-rules
+context
+docs
+examples
+scripts
+snippets
+.clineignore
+.copilotignoregit add .gitignore
+``
+.cursorignore
+.cursorrules
+.template-manifest.yml
+.template-version
+CLAUDE.md
+README.md

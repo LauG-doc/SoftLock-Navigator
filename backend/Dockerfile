@@ -1,0 +1,33 @@
+# ============================================================================
+# Python Backend (FastAPI/Flask) - SECURE
+# ============================================================================
+# Runs as non-root user for defense in depth
+# ============================================================================
+
+FROM python:3.14-slim
+
+# ============================================
+# SECURITY: Create non-root user
+# ============================================
+RUN groupadd -g 1001 appgroup && \
+    useradd -u 1001 -g appgroup -s /bin/bash appuser
+
+WORKDIR /app
+
+# Install build dependencies for packages like pandas
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install dependencies as root (before switching user)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code with correct ownership
+COPY --chown=appuser:appgroup . .
+
+# Switch to non-root user
+USER appuser
+
+EXPOSE 3000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000"]
